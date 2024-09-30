@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colores con Teclado</title>
+    <style>
+        #key {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Div que cambia de color al presionar teclas -->
+    <div id="key"></div>
+
+    <script>
+        let colorGlobal = 'white'; // Variable global para almacenar el color
+
+        // Evento que detecta las teclas presionadas
+        document.addEventListener('keydown', function(event) {
+            const keyDiv = document.getElementById("key");
+
+            // Cambiar el color del div "key" según la tecla presionada
+            if (event.key === 'a') {
+                colorGlobal = 'pink'; // Rosado
+                keyDiv.style.backgroundColor = colorGlobal;
+            } else if (event.key === 's') {
+                colorGlobal = 'orange'; // Naranjo
+                keyDiv.style.backgroundColor = colorGlobal;
+            } else if (event.key === 'd') {
+                colorGlobal = 'lightblue'; // Celeste
+                keyDiv.style.backgroundColor = colorGlobal;
+            }
+
+            // Crear un nuevo div con colores al presionar q, w o e
+            if (event.key === 'q') {
+                crearNuevoDiv('purple'); // Morado
+            } else if (event.key === 'w') {
+                crearNuevoDiv('gray'); // Gris
+            } else if (event.key === 'e') {
+                crearNuevoDiv('brown'); // Café
+            }
+        });
+
+        // Función para crear un nuevo div con el color especificado
+        function crearNuevoDiv(color) {
+            const nuevoDiv = document.createElement('div');
+            nuevoDiv.style.width = '200px';
+            nuevoDiv.style.height = '200px';
+            nuevoDiv.style.backgroundColor = color;
+            nuevoDiv.style.border = '1px solid black';
+            document.body.appendChild(nuevoDiv); // Añadir el nuevo div al cuerpo de la página
+        }
+    </script>
+</body>
+</html>
